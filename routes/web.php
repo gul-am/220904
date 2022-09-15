@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pathway');
-});
+Route::get('/', [LoginController::class, 'index']) -> name ('login');
+Route::get('pathway', [LoginController::class, 'path']) -> name ('pathway');
+Route::get('wh.wh-index', [LoginController::class, 'warehouse']) ->name ('wh-index');
